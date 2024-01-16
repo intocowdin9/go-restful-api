@@ -1,9 +1,7 @@
 package middleware
 
 import (
-	"fmt"
 	"net/http"
-	"runtime"
 
 	"kelas-golang-pzn/go-restful-api/helper"
 	"kelas-golang-pzn/go-restful-api/model/web"
@@ -18,14 +16,8 @@ func NewAuthMiddleware(handler http.Handler) *AuthMiddleware {
 }
 
 func (middleware *AuthMiddleware) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
-	fmt.Println("sampai kesini kah?")
-	_, file, no, ok := runtime.Caller(1)
-	if ok {
-		fmt.Printf("called from %s#%d\n", file, no)
-	}
 	if "RAHASIA" == request.Header.Get("X-API-Key") {
 		// ok
-		fmt.Println("pass to next function")
 		middleware.Handler.ServeHTTP(writer, request)
 		return
 	}

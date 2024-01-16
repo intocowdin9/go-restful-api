@@ -2,7 +2,6 @@ package helper
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 )
 
@@ -13,7 +12,6 @@ func ReadFromRequestBody(request *http.Request, result interface{}) {
 }
 
 func WriteToResponseBody(writer http.ResponseWriter, response interface{}) {
-	fmt.Println("saya dipanggil")
 	writer.Header().Add("Content-Type", "application/json")
 	encoder := json.NewEncoder(writer)
 	err := encoder.Encode(response)
