@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"kelas-golang-pzn/go-restful-api/helper"
-	"kelas-golang-pzn/go-restful-api/model/web"
-	"kelas-golang-pzn/go-restful-api/service"
+	"kelas-golang-pzn/go-dependency-injection/helper"
+	"kelas-golang-pzn/go-dependency-injection/model/web"
+	"kelas-golang-pzn/go-dependency-injection/service"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -15,7 +15,7 @@ type CategoryControllerImpl struct {
 	CategoryService service.CategoryService
 }
 
-func NewCategoryController(categoryService service.CategoryService) CategoryController {
+func NewCategoryController(categoryService service.CategoryService) *CategoryControllerImpl {
 	return &CategoryControllerImpl{
 		CategoryService: categoryService,
 	}

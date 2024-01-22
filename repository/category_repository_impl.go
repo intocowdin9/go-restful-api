@@ -4,13 +4,14 @@ import (
 	"context"
 	"database/sql"
 	"errors"
-	"kelas-golang-pzn/go-restful-api/helper"
-	"kelas-golang-pzn/go-restful-api/model/domain"
+
+	"kelas-golang-pzn/go-dependency-injection/helper"
+	"kelas-golang-pzn/go-dependency-injection/model/domain"
 )
 
 type CategoryRepositoryImpl struct{}
 
-func NewCategoryRepository() CategoryRepository {
+func NewCategoryRepository() *CategoryRepositoryImpl {
 	return &CategoryRepositoryImpl{}
 }
 

@@ -1,8 +1,8 @@
 package helper
 
 import (
-	"kelas-golang-pzn/go-restful-api/model/domain"
-	"kelas-golang-pzn/go-restful-api/model/web"
+	"kelas-golang-pzn/go-dependency-injection/model/domain"
+	"kelas-golang-pzn/go-dependency-injection/model/web"
 )
 
 func ToCategoryResponse(category domain.Category) web.CategoryResponse {

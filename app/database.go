@@ -2,8 +2,9 @@ package app
 
 import (
 	"database/sql"
-	"kelas-golang-pzn/go-restful-api/helper"
 	"time"
+
+	"kelas-golang-pzn/go-dependency-injection/helper"
 )
 
 func NewDB() *sql.DB {

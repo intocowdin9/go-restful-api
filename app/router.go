@@ -1,8 +1,8 @@
 package app
 
 import (
-	"kelas-golang-pzn/go-restful-api/controller"
-	"kelas-golang-pzn/go-restful-api/exception"
+	"kelas-golang-pzn/go-dependency-injection/controller"
+	"kelas-golang-pzn/go-dependency-injection/exception"
 
 	"github.com/julienschmidt/httprouter"
 )

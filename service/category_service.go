@@ -2,7 +2,8 @@ package service
 
 import (
 	"context"
-	"kelas-golang-pzn/go-restful-api/model/web"
+
+	"kelas-golang-pzn/go-dependency-injection/model/web"
 )
 
 type CategoryService interface {

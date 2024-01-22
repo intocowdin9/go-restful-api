@@ -4,11 +4,11 @@ import (
 	"context"
 	"database/sql"
 
-	"kelas-golang-pzn/go-restful-api/exception"
-	"kelas-golang-pzn/go-restful-api/helper"
-	"kelas-golang-pzn/go-restful-api/model/domain"
-	"kelas-golang-pzn/go-restful-api/model/web"
-	"kelas-golang-pzn/go-restful-api/repository"
+	"kelas-golang-pzn/go-dependency-injection/exception"
+	"kelas-golang-pzn/go-dependency-injection/helper"
+	"kelas-golang-pzn/go-dependency-injection/model/domain"
+	"kelas-golang-pzn/go-dependency-injection/model/web"
+	"kelas-golang-pzn/go-dependency-injection/repository"
 
 	"github.com/go-playground/validator/v10"
 )
@@ -19,7 +19,7 @@ type CategoryServiceImpl struct {
 	Validate           *validator.Validate
 }
 
-func NewCategoryService(categoryRepository repository.CategoryRepository, DB *sql.DB, validate *validator.Validate) CategoryService {
+func NewCategoryService(categoryRepository repository.CategoryRepository, DB *sql.DB, validate *validator.Validate) *CategoryServiceImpl {
 	return &CategoryServiceImpl{
 		CategoryRepository: categoryRepository,
 		DB:                 DB,

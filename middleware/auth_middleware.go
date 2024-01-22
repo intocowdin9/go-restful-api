@@ -3,8 +3,8 @@ package middleware
 import (
 	"net/http"
 
-	"kelas-golang-pzn/go-restful-api/helper"
-	"kelas-golang-pzn/go-restful-api/model/web"
+	"kelas-golang-pzn/go-dependency-injection/helper"
+	"kelas-golang-pzn/go-dependency-injection/model/web"
 )
 
 type AuthMiddleware struct {
@@ -19,17 +19,16 @@ func (middleware *AuthMiddleware) ServeHTTP(writer http.ResponseWriter, request 
 	if "RAHASIA" == request.Header.Get("X-API-Key") {
 		// ok
 		middleware.Handler.ServeHTTP(writer, request)
-		return
+	} else {
+		// error
+		writer.Header().Set("Content-Type", "application/json")
+		writer.WriteHeader(http.StatusUnauthorized)
+
+		webResponse := web.WebResponse{
+			Code:   http.StatusUnauthorized,
+			Status: "UNAUTHORIZED",
+		}
+
+		helper.WriteToResponseBody(writer, webResponse)
 	}
-
-	// error
-	writer.Header().Set("Content-Type", "application/json")
-	writer.WriteHeader(http.StatusUnauthorized)
-
-	webResponse := web.WebResponse{
-		Code:   http.StatusUnauthorized,
-		Status: "UNAUTHORIZED",
-	}
-
-	helper.WriteToResponseBody(writer, webResponse)
 }

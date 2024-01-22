@@ -3,8 +3,8 @@ package exception
 import (
 	"net/http"
 
-	"kelas-golang-pzn/go-restful-api/helper"
-	"kelas-golang-pzn/go-restful-api/model/web"
+	"kelas-golang-pzn/go-dependency-injection/helper"
+	"kelas-golang-pzn/go-dependency-injection/model/web"
 
 	"github.com/go-playground/validator/v10"
 )
